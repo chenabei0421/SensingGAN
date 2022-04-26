@@ -1,0 +1,120 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import torch\n",
+    "import torch.nn.functional as F\n",
+    "from torch.autograd import Variable\n",
+    "import numpy as np\n",
+    "from math import exp"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gaussian(window_size, sigma):\n",
+    "    gauss = torch.Tensor([exp(-(x - window_size//2)**2/float(2*sigma**2)) for x in range(window_size)])\n",
+    "    return gauss/gauss.sum()\n",
+    "\n",
+    "def create_window(window_size, channel):\n",
+    "    _1D_window = gaussian(window_size, 1.5).unsqueeze(1)\n",
+    "    _2D_window = _1D_window.mm(_1D_window.t()).float().unsqueeze(0).unsqueeze(0)\n",
+    "    window = Variable(_2D_window.expand(channel, 1, window_size, window_size).contiguous())\n",
+    "    return window\n",
+    "\n",
+    "def _ssim(img1, img2, window, window_size, channel, size_average = True):\n",
+    "    mu1 = F.conv2d(img1, window, padding = window_size//2, groups = channel)\n",
+    "    mu2 = F.conv2d(img2, window, padding = window_size//2, groups = channel)\n",
+    "\n",
+    "    mu1_sq = mu1.pow(2)\n",
+    "    mu2_sq = mu2.pow(2)\n",
+    "    mu1_mu2 = mu1*mu2\n",
+    "\n",
+    "    sigma1_sq = F.conv2d(img1*img1, window, padding = window_size//2, groups = channel) - mu1_sq\n",
+    "    sigma2_sq = F.conv2d(img2*img2, window, padding = window_size//2, groups = channel) - mu2_sq\n",
+    "    sigma12 = F.conv2d(img1*img2, window, padding = window_size//2, groups = channel) - mu1_mu2\n",
+    "\n",
+    "    C1 = 0.01**2\n",
+    "    C2 = 0.03**2\n",
+    "\n",
+    "    ssim_map = ((2*mu1_mu2 + C1)*(2*sigma12 + C2))/((mu1_sq + mu2_sq + C1)*(sigma1_sq + sigma2_sq + C2))\n",
+    "\n",
+    "    if size_average:\n",
+    "        return ssim_map.mean()\n",
+    "    else:\n",
+    "        return ssim_map.mean(1).mean(1).mean(1)\n",
+    "\n",
+    "class SSIM(torch.nn.Module):\n",
+    "    def __init__(self, window_size = 11, size_average = True):\n",
+    "        super(SSIM, self).__init__()\n",
+    "        self.window_size = window_size\n",
+    "        self.size_average = size_average\n",
+    "        self.channel = 1\n",
+    "        self.window = create_window(window_size, self.channel)\n",
+    "\n",
+    "    def forward(self, img1, img2):\n",
+    "        (_, channel, _, _) = img1.size()\n",
+    "\n",
+    "        if channel == self.channel and self.window.data.type() == img1.data.type():\n",
+    "            window = self.window\n",
+    "        else:\n",
+    "            window = create_window(self.window_size, channel)\n",
+    "            \n",
+    "            if img1.is_cuda:\n",
+    "                window = window.cuda(img1.get_device())\n",
+    "            window = window.type_as(img1)\n",
+    "            \n",
+    "            self.window = window\n",
+    "            self.channel = channel\n",
+    "\n",
+    "\n",
+    "        return _ssim(img1, img2, window, self.window_size, channel, self.size_average)\n",
+    "\n",
+    "def ssim(img1, img2, window_size = 11, size_average = True):\n",
+    "    (_, channel, _, _) = img1.size()\n",
+    "    window = create_window(window_size, channel)\n",
+    "    \n",
+    "    if img1.is_cuda:\n",
+    "        window = window.cuda(img1.get_device())\n",
+    "    window = window.type_as(img1)\n",
+    "    \n",
+    "    return _ssim(img1, img2, window, window_size, channel, size_average)\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {},
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.5.2"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}

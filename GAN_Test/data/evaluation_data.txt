@@ -1,0 +1,2 @@
+./models/models_k3_d4_ssimloss/KPN_rainy_image_epoch250_bs16.pth: psnr:24.425738069370674, ssim:0.7796770412290241, fps: 96.29254650071755
+./models/models_SA_onlySA2conv_deconv/KPN_rainy_image_epoch250_bs16.pth: psnr:23.416267120572705, ssim:0.7945485467285728, fps: 36.57320480565332

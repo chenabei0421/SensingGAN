@@ -1,0 +1,7 @@
+./models/models_SA_onlySA2conv/KPN_rainy_image_epoch250_bs16.pth: psnr:7.835250551870184, ssim:0.11185790216075674, fps: 7.595595337605899
+./models/models_k3_d4_ssimloss_SavePredictedKernel/KPN_rainy_image_epoch250_bs16.pth: psnr:6.393533278452511, ssim:0.017656267661894164, fps: 7.7271667029016395
+./models/models_k3_d4_ssimloss_SavePredictedKernel/KPN_rainy_image_epoch250_bs16.pth: psnr:6.640764057083131, ssim:0.036003774672365464, fps: 6.340389445537455
+./models/models_k3_d4_ssimloss/KPN_rainy_image_epoch250_bs16.pth: psnr:7.472926941441784, ssim:0.1286398410865295, fps: 4.703083529152928
+./models/models_SA_onlySA2conv_deconv/KPN_rainy_image_epoch250_bs16.pth: psnr:23.416267172171988, ssim:0.7945485428415973, fps: 35.88904602637628
+./models/models_SA_onlySA2conv_deconv/KPN_rainy_image_epoch250_bs16.pth: psnr:23.416267120572705, ssim:0.7945485467285728, fps: 36.57320480565332
+./models/models_SA_onlySA/KPN_rainy_image_epoch250_bs16.pth: psnr:23.52949630369387, ssim:0.7975885446734654, fps: 26.795718030070997

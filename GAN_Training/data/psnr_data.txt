@@ -1,0 +1,8 @@
+./models/models_SA/KPN_rainy_image_epoch250_bs8.pth: 22.057120416762704
+./models/models_k3_d4_ssimloss/KPN_rainy_image_epoch250_bs16.pth: 24.425738069370674
+./models/models_featuremap/KPN_rainy_image_epoch250_bs16.pth: 23.734837173268016
+./models/models_SA_maxpooing/KPN_rainy_image_epoch240_bs8.pth: 22.669143181059535
+./models/models_SA_NoTop/KPN_rainy_image_epoch250_bs8.pth: 21.731266987565604
+./models/models_KPN_norm/KPN_rainy_image_epoch250_bs16.pth: 21.770149308901445
+./models/models_SA_onlySA/KPN_rainy_image_epoch250_bs16.pth: 23.52949630369387
+./models/models_SA_onlySA2conv/KPN_rainy_image_epoch250_bs16.pth: 23.504282256264695
