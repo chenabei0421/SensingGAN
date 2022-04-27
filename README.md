@@ -1,6 +1,5 @@
 # SensingGAN: A Lightweight GAN for Real-time Rain Removal with Self-attention
-### Author: [Chun-Po Chen](https://www.linkedin.com/in/chenabei0421/)
-### Advisor: [Pao-Ann Hsiung](https://www.cs.ccu.edu.tw/~pahsiung/introduction/biography.html)
+### Author: [Chun-Po Chen](https://www.linkedin.com/in/chenabei0421/), Advisor: [Pao-Ann Hsiung](https://www.cs.ccu.edu.tw/~pahsiung/introduction/biography.html)
 ### Link: [Online Speech: Pao-Ann Hsiung](https://www.youtube.com/watch?v=onE_wNJvLes)
 
 ## Abstract
