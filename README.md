@@ -1,16 +1,18 @@
 # SensingGAN
-# Author: 
-# Link:
-# Abstract
+### Author: 
+### Link:
+
+## Abstract
 
 
-# Requirements
+## Requirements
 - Jupyter
+- Python
 - Pytorch
 
-# Dataset
+## Dataset
 
-# Folders
+## Folders
 - rainy_image_dataset: Dataset
 - models: Trained models
 - data: PSNR、SSIM results
@@ -18,8 +20,8 @@
 - samples: De-rained images in training
 - pytorch_ssim: Calculate SSIM
 
-# Train
--train_own.ipynb: Click Run to start training after adjusting architecute of model and training parameters.
+## Train
+-train_own.ipynb: Click **Run** on Juypter to start training after adjusting architecute of model and training parameters.
 
     - Architecute of model:
         - **network.py: Architecutre of SensingGAN**
@@ -41,8 +43,8 @@
         - b1: Beta1 of Adam
         - b2: Beta2 of Adam
 
-# Test
--test.ipynb: Click Run to start testing after adjusting architecute of model and training parameters.
+## Test
+-test.ipynb: Click **Run** on Juypter to start testing after adjusting architecute of model and training parameters.
 
     - Architecute of model:
         - **network.py: The architecutre of load_gname model**
@@ -56,4 +58,4 @@
         - resize: Is adjuct image-size
         - scale_size: Max image-size
 
-# Contact
+## Contact
