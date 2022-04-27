@@ -2,6 +2,8 @@
 # Author: 
 # Link:
 # Abstract
+
+
 # Requirements
 - Jupyter
 - Pytorch
@@ -18,6 +20,7 @@
 
 # Train
 -train_own.ipynb: Click Run to start training after adjusting architecute of model and training parameters.
+
     - Architecute of model:
         - **network.py: Architecutre of SensingGAN**
         - loss_function: Architecutre of SA-Feature Loss
@@ -40,6 +43,7 @@
 
 # Test
 -test.ipynb: Click Run to start testing after adjusting architecute of model and training parameters.
+
     - Architecute of model:
         - **network.py: The architecutre of load_gname model**
         - utils.py: Load dataset in get_files
