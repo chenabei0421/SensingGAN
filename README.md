@@ -48,7 +48,7 @@ Therefore, we discusses how to achieve **a better balance between de-raining per
 ## Folders
 * rainy_image_dataset: Dataset
 * models: Trained models
-* data: PSNR、SSIM results
+* data: PSNR, SSIM results
 * results: De-rained images results
 * samples: De-rained images in training
 * pytorch_ssim: Calculate SSIM
