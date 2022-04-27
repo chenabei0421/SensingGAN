@@ -5,13 +5,14 @@
 
 ## Abstract
 ![The example of the detection result of rain removal for object detection.](/Figures/Example_Derained_ObjectDetection.png "The example of the detection result of rain removal for object detection.")
-Rain may degrade the quality of source images for the application of Computer Vision. For example, the object detection system of autonomous vehicles may be inaccurate due to rain. We proposes SensingGAN: a lightweight Generative Adversarial Network (GAN)-based Single Image De-raining method. There are 2 main challenges to meet the needs of computer vision applications for rain removal:
+Rain may degrade the quality of source images for the application of Computer Vision. For example, the object detection system of autonomous vehicles may be inaccurate due to rain. We proposes SensingGAN: a lightweight Generative Adversarial Network (GAN)-based Single Image De-raining method with **Self-attention**. There are 2 main challenges to meet the needs of computer vision applications for rain removal:
 1. The real-world rain is diverse, so it is difficult to extract rain using a simple method, and it is not easy to restore the edges and details of objects covered by rain after de-raining.
 1. In the past, many methods focused on the de-raining performance, but the use of complex architectures could not meet the needs of the real-time environment in terms of efficiency.
-Therefore, we discusses how to achieve a better balance between de-raining performance and efficiency, which can provide high-quality de-rained images for computer vision in the Rain in Driving (RID) dataset.
+
+Therefore, we discusses how to achieve **a better balance between de-raining performance and efficiency**, which can provide high-quality de-rained images for computer vision in the Rain in Driving (RID) dataset.
 
 ![The architecture of SensingGAN.](/Figures/SensingGAN.jpg "The architecture of SensingGAN.")
-SensingGAN can effectively sense objects and rain like humans, and restore the details of objects to satisfy the high safety and efficiency requirements of autonomous vehicles. SA-Feature Loss can not only maintain the efficiency but also can more clearly distinguish objects to restore the details and shapes of objects. The loss function and discriminator improve the de-raining performance in the training stage without requiring extra execution time. SensingGAN increases object detection (YOLO V4-Tiny) accuracy by 3% in RID. In comparison with classical de-raindrop GAN, FPS is improved by 13 times (10 ms).
+**SensingGAN can effectively sense objects and rain like humans**, and restore the details of objects to satisfy the high safety and efficiency requirements of autonomous vehicles. **SA-Feature** Loss can not only maintain the efficiency but also can more clearly distinguish objects to restore the details and shapes of objects. The loss function and discriminator improve the de-raining performance in the training stage without requiring extra execution time. SensingGAN increases object detection (YOLO V4-Tiny) accuracy by **3%** in RID. In comparison with classical de-raindrop GAN, FPS is improved by **13** times (10 ms).
 
 ## Experimental Results
 ### Datasets
@@ -106,9 +107,3 @@ SensingGAN can effectively sense objects and rain like humans, and restore the d
 * Rain in Driving (RID dataset): S. Li, I. B. Araujo, W. Ren, Z. Wang, E. K. Tokuda, R. H. Junior, R. Cesar-Junior, J. Zhang, X. Guo, and X. Cao, “Single image deraining: A comprehensive benchmark analysis,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), June 2019, pp. 3838–3847
 * Rain100H dataset: W. Yang, R. T. Tan, J. Feng, J. Liu, Z. Guo, and S. Yan, “Deep Joint Rain Detection and Removal from a Single Image,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), March 2017, pp. 1357–1366.
 * Rain1400 dataset: Rain100H: X. Fu, J. Huang, D. Zeng, Y. Huang, X. Ding, and J. Paisley, “Removing rain from single images via a deep detail network,” in Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR), July 2017, pp. 3855–3863
-
-
-
-
-
-
