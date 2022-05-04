@@ -10,8 +10,14 @@ Rain may degrade the quality of source images for the application of Computer Vi
 
 Therefore, we discusses how to achieve **a better balance between de-raining performance and efficiency**, which can provide high-quality de-rained images for computer vision in the Rain in Driving (RID) dataset.
 
+### Architecture
 ![The architecture of SensingGAN.](/Figures/SensingGAN.jpg "The architecture of SensingGAN.")
 **SensingGAN can effectively sense objects and rain like humans**, and restore the details of objects to satisfy the high safety and efficiency requirements of autonomous vehicles. **SA-Feature** Loss can not only maintain the efficiency but also can more clearly distinguish objects to restore the details and shapes of objects. The loss function and discriminator improve the de-raining performance in the training stage without requiring extra execution time. SensingGAN increases object detection (YOLO V4-Tiny) accuracy by **3%** in RID. In comparison with classical de-raindrop GAN, FPS is improved by **13** times (10 ms).
+
+### SA-Feature Loss: 
+The loss of relations of feature values obtained by a pair of compared images applied by a VGG16, allowing the model to consider relations of high level features during training.
+* Low-level details: relu2_1, relu2_2
+* High-level features: SA(relu5_3)
 
 ## Experimental Results
 ### Datasets
@@ -21,7 +27,7 @@ Therefore, we discusses how to achieve **a better balance between de-raining per
 * Rain in Driving (RID): Rain Streaks + Raindrop | Real
 
 ### Metrics
-* Frame per Second (FPS) : Speed
+* Frame per Second (FPS): Speed
 * Peak Signal-to-Noise Ratio (PSNR): The degree of noise
 * Structural Similarity Index Measure (SSIM): Similarity of Luminance, Contrast, and Structure
 * Mean Average Precision (mAP): Accuracy of object detection
